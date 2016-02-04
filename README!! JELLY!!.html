@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>README!</title>
+</head>
+<body>
+	<b>Pengenalan</b>
+	<ol>
+		<li>
+			<p>pertama lu buka file <u>autoload.php</u>, ada di <b>application/config/autoload.php.</b> kalo lu males cari bisa pake <b>Ctrl+P</b> trus ketik aja nama file nya<br />
+			liat di situ ada <b>$autoload['libraries'] = array('database', 'session', 'pagination');</b><br />
+			nah itu fungsinya buat ngeload otomatis library dari <i><u>database, session, pagination</u></i><br />
+			kalo itu ga di pake, misalkan lu butuh fungsi library dari database, lu bakal manggil itu di setiap controller atau model, nahh itu kan ribet, mendingan di autoload<br />
+			yang <b>$autoload['helper'] = array('url', 'form', 'file');</b> fungsi nya juga sama, dia buat ngeload otomatis, cuman kalo dia ngeload yg namanya helper, bukan library</p>
+		</li>
+		<li>
+			<p>trus lu liat file <u>config.php</u>, di situ lu liat <b>$config['base_url'] = '';</b> itu sengaja gw ga isi biarkan dia default, biar dia ngelink nya otomatis sesuai nama folder sama nama localhost lu <br />
+			</p>
+		</li>
+		<li>
+			<p>lu liat lagi file <u>database.php</u>, di situ lu isi username, password, sama nama database jadi phpmyadmin lu. defaultnya lepi lu sihh biasanya usernamenya <i>root</i> passwordnya <i>kosong</i></p>
+		</li>
+		<li>
+			<p>buka file <u>routes.php</u>, disitu ada default controller yang fungsi nya ngecek controller pertama yang mau di jalanin. kalo lu liat: <br />
+			<b>
+				$route['register'] = 'login/register';<br />
+				$route['logout'] = 'login/logout';<br />
+				$route['search'] = 'page/search';<br />
+			</b>
+			itu buat manipulasi link/url nya, jadi biasanya kan kalo link itu nama <i>controller</i> baru nama <i>function</i>, nahh kalo pake itu, jadi kita bisa ganti, misalkan controllernya <b>page</b> trus functionnya <b>search</b>, tapi lu mau nanti linknya itu yg muncul cuman nama functionnya doang, nahh, lu bisa manipulasi dengan cara <b>$route['search'] = 'page/search';</b>
+			</p>
+		</li>
+	</ol>
+	<br />
+	<br />
+	<b>Controller</b>
+	<ol>
+		<li>
+			<p>
+				disitu ada 3 controller, <u>dashboard, login, page</u>, controller <u>dashboard</u> itu buat control <i>backendnya</i>, kalo controller <u>login</u>, itu buat control <i>login, register</i> sama<i> logout</i>. kalo <u>page</u> itu buat control <i>frontendnya</i>.
+			</p>
+		</li>
+		<li>
+			<p>
+				Controller <b>Page.php</b><br />
+				disitu ada beberapa function, nahh function2 itu yg akan jadi link yang kaya gw bilang tadi, contoh: http://localhost/ci_jelly/<b>nama_controller</b>/<b>nama_function</b><br />
+				disitu ada yang namanya <b>function __construct()</b>, itu buat jalanin yg pertama, dan juga di jalanin buat ke semua function lain yang ada di dalem controller tsb. Nahh di dalem function itu, isi nya ada <b>$this->load->model('page_model');</b> itu buat ngeload ke semua function yg ada di controller tsb, jadi setiap function yang manggil <b>$this->page_model->nama_function_model</b> itu ga perlu ngeload lagi satu persatu di setiap function.<br />
+				di situ ada <b>$data['blabla']</b> trus ada <b>$this->session</b> nah itu nanti gw jelasin pas hari sabtu aja kalo lu ketemu gw, daripada gw ngetik disini, selain ribet, belom tentu juga penjelasan gw jelas :v
+			</p>
+		</li>
+		<li>
+			<p>
+				Controller <b>Login.php</b><br />
+				nanti gw jelasin pas gw ketemu lu hari sabtu.
+			</p>
+		</li>
+		<li>
+			<p>
+				Controller <b>Page.php</b><br />
+				nanti gw jelasin pas gw ketemu lu hari sabtu.
+			</p>
+		</li>
+	</ol>
+	<br />
+	<br />
+	<b>Model</b>
+	<ol>
+		<li>
+			<p>
+				Model <br />
+				model juga sama, nanti aja gw jelasin pas hari sabtu.
+			</p>
+		</li>
+	</ol>
+	<br />
+	<br />
+	<br />
+	<br />
+	<h3>Sekarang lu daripada liburan ga jelas, ngegame, hibernasi dsb. Mendingan lu pikirin itu kategory dari post tsb apa aja, trus gambar nya nanti lu masukin kek, post nya biar banyakan. terus lu tentuin judul nih halaman web apaan, kalo mau ganti title atau dsb nya tapi lu masih ga ngerti juga, lu tunggu gw aja hari sabtu, biar gw bantuin lu buat ganti nya. Pokoknya lu coba mengerti dlu aja tentang struktur nihh codingan, lu bingung sisa BBM gw aja, kalo gw bales nya lama tandanya gw lagi ga megang HP.</h3>
+	<h3>Akun user gw bikin cuman 2, yg pertama admin, passwordnya juga admin, yang kedua user, passwordnya juga user</h3>
+	<h3>upload ke database ke phpmyadmin nya ga usah buat nama database dlu, langsung aja klik import di halaman menu awal database, trus lu masukin <u>db_artikel.sql</u></h3>
+</body>
+</html>
